@@ -1,9 +1,9 @@
 :root {
 	--height-header: 60px;
-	--height-todolist: 400px;
+	--height-todolist: 430px;
 	--height-todolist-header: 30px;
 
-	--width-todolist: 1000px;
+	--width-todolist: 1300px;
 
 	--color-green: #ff007f;
 	--color-red-button: rgb(148, 21, 21);
@@ -41,14 +41,42 @@ body {
 	box-shadow: 5px 5px 5px black;
 	border-radius: 5px;
     padding: 3px;
+	display: flex;
 }
 
 .movie_wrap{
     display: flex;
     justify-content:space-around;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+    margin: 0;
 }
 
+ul > li{
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    position: relative;
+    top: 20px;
+    right: 40px;
+}
+
+ul > li > img{
+	width: 200px;
+	border-radius: 10px;
+}
+
+ul > li {
+    display: flex;
+    position: relative;
+    bottom: 15px;
+}
+
+
 img{
+	margin-top: 10px;
     height: 300px;
     width: 220px;
 }
@@ -63,4 +91,6 @@ button{
     border-radius: 30px;
     margin-top: 170px;
 }
+
+
 
