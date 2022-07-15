@@ -1,111 +1,37 @@
 
 
-
-const Api = (() => {
-
     const baseUrl = 'http://localhost:4232'
     const path = "movies"
     
-    const getMovies = () => 
+
         fetch([baseUrl, path].join("/"))
         .then((response) => response.json())
-        .then(json => console.log(json))
-
-        return {
-            getMovies
-        }
-
-    })()
+        .then(json => {
+            console.log(json);
+            showData(json)
+        })
 
 
-
-
-//view
-
-const View = (() => {
-    const domstr = {
-        movieWrap: "#movie_wrap",
-    }
-
-    const render = (ele, tmp) => {
-        ele.innerHTML = tmp
-    }
-
-    const createTmp = (arr) => {
-        let tmp = ""
-        arr.forEach((movie) => {
-            tmp += 
-            `
+    const showData = (id) => {
+        const movieUl = document.querySelector('.movie_wrap')
+        let template = ""; //li template
+        id // represents item
+          .sort((a, b) => b.id - a.id) // compare function a n b/ ids below in delete function
+            .forEach((movie) => {
+            template +=  `
             <li>
-                <img src="${movie.imgUrl}" alt="">${movie.outlineInfo}
+                <img src="${movie.imgUrl}" alt="">
+                <p>${movie.name}</p>
+                <p>${movie.outlineInfo}</p>
             </li>
-            `
-        })
-        return tmp
-        
-    }
-
-    return {
-        render,
-        createTmp,
-        domstr
-    }
-})()
-
-
-
-//model
-const Model = ((api, view) => {
-    class Movie {
-        constructor(id, imgUrl, name, outlineInfo){
-            this.id = id
-            this.imgUrl = imgUrl
-            this.name = name
-            this.outlineInfo = outlineInfo
-        }
-    }
-    class State{
-        #movies = []
-
-        get movie(){
-            return this.#movies
-        }
-
-        set movie(movies) {
-            this.#movies = [...movies]
-
-            const movieWrap = document.querySelector(view.domstr.movieWrap)
-            const tmp = view.createTmp(this.#movies)
-            view.render(movieWrap, tmp)
-        }
-    }
-
-    const { getMovies } = api
-
-    return {
-        getMovies,
-        State
-    }
-})(Api, View)
-
-
-//controller
-const Controller = ((model) => {
+            `; //// add edit function to update the text patch or put
+            });
     
-    const state = new model.State();
-
-    const init = () => {
-        model.getMovies().then((movies) => {
-            state.movie = [...movies]
-        })
+        movieUl.innerHTML = template;
     }
 
 
 
-    return { 
-        init 
-    }
-})(Model)
 
 
 
