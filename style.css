@@ -1,14 +1,4 @@
-:root {
-	--height-header: 60px;
-	--height-todolist: 430px;
-	--height-todolist-header: 30px;
 
-	--width-todolist: 1300px;
-
-	--color-green: #ff007f;
-	--color-red-button: rgb(148, 21, 21);
-	--color-red-li-hover: rgb(27, 172, 8);
-}
 
 * {
 	margin: 0;
@@ -35,9 +25,9 @@ body {
 }
 
 .body {
-	height: var(--height-todolist);
-	width: var(--width-todolist);
-	background-color: var(--color-green);
+	height: 430px;
+	width: 1300px;
+	background-color: #ff007f;
 	box-shadow: 5px 5px 5px black;
 	border-radius: 5px;
     padding: 3px;
