@@ -11,7 +11,7 @@ fetch([baseUrl, path].join("/"))
 const allMovie = (id) => {
     const movieUl = document.querySelector(".movie_wrap");
     let template = "";
-    id.sort((a, b) => b.id - a.id).forEach((movie) => {
+    id.forEach((movie) => {
     template += `
             <li>
                 <img src="${movie.imgUrl}" alt="">
@@ -28,7 +28,7 @@ function scroll() {
     const ul = document.querySelector(".movie_wrap");
     var scrollAmount = 0;
     var scrollMin = 0;
-    var scrollMax = 100;
+    var scrollMax = 200;
 
     document.querySelector(".btn1").onclick = function () {
     ul.scrollTo({
