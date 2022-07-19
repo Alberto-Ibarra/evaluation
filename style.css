@@ -51,24 +51,15 @@ ul > li{
     position: relative;
     top: 20px;
     right: 40px;
-}
-
-ul > li > img{
-	width: 200px;
-	border-radius: 10px;
-}
-
-ul > li {
-    display: flex;
-    position: relative;
     bottom: 15px;
+    border-radius: 10px;
 }
 
 
 img{
 	margin-top: 10px;
     height: 300px;
-    width: 220px;
+    width: 200px;
 }
 
 li{

@@ -26,11 +26,13 @@ const allMovie = (id) => {
 
 function scroll() {
     const ul = document.querySelector(".movie_wrap");
-    var scrollAmount = 0;
-    var scrollMin = 0;
-    var scrollMax = 200;
+    let scrollAmount = 4;
+    let scrollMin = 0;
+    let scrollMax = 300;
+
 
     document.querySelector(".btn1").onclick = function () {
+
     ul.scrollTo({
         left: Math.max((scrollAmount += 1000), scrollMax),
         behavior: "smooth",
